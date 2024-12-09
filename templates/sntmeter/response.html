@@ -1,0 +1,40 @@
+{% load static %}
+
+
+<table class="datos-medidor" border='0' width='100%'>
+    <tr>
+        
+        <td style="padding:10px;">
+        <p><b>Nombre:</b> {{medidor.name}}</p>
+        <p><b>Serial:</b> {{medidor.serial}}</p>
+        <p><b>Tipo:</b> {{medidor.con_method.type}}</p>
+        {% if medidor.con_method.type == 'Serial' %}
+            <p><b>Port:</b> {{medidor.con_port}}</p>
+            <p><b>Rate:</b> {{medidor.baud_rate}}</p>
+        {% else %}
+            <p><b>IP:</b> {{medidor.con_ip}}</p>
+            <p><b>Port:</b> {{medidor.con_port}}</p>
+        {% endif %}
+        <p><b>pot_act_dir: </b>{{medidor.pot_act_dir}}</p>
+        <p><b>pot_act_rev: </b>{{medidor.pot_act_rev}}</p>
+        <p><b>pot_reac_cap_QI: </b>{{medidor.pot_reac_cap_QI}}</p>
+        <p><b>pot_reac_cap_QII: </b>{{medidor.pot_reac_cap_QII}}</p>
+        <p><b>pot_reac_cap_QIII: </b>{{medidor.pot_reac_cap_QIII}}</p>
+        <p><b>pot_reac_cap_QIV: </b>{{medidor.pot_reac_cap_QIV}}</p>
+        <p><b>pot_apar_dir: </b>{{medidor.pot_apar_dir}}</p>
+        <p><b>pot_apar_rev: </b>{{medidor.pot_apar_rev}}</p>
+        <p><b>vol_de_fase_1: </b>{{medidor.vol_de_fase_1}}</p>
+        <p><b>vol_de_fase_2: </b>{{medidor.vol_de_fase_2 }}</p>
+        <p><b>vol_de_fase_3 </b>{{medidor.vol_de_fase_3 }}</p>
+        <p><b>corriente_1: </b>{{medidor.corriente_1}}</p>
+        <p><b>corriente_2: </b>{{medidor.corriente_2}}</p>
+        <p><b>corriente_3: </b>{{medidor.corriente_3}}</p>
+        <p><b>fact_de_pot: </b>{{medidor.fact_de_pot}}</p>
+        <p><b>fact_de_pot_1: </b>{{medidor.fact_de_pot_1}}</p>
+        <p><b>fact_de_pot_2: </b>{{medidor.fact_de_pot_2}}</p>
+        <p><b>fact_de_pot_3: </b>{{medidor.fact_de_pot_3}}</p>
+            
+        </td>
+        
+    </tr>
+</table>

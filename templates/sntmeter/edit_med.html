@@ -1,0 +1,7 @@
+{% load static %}
+
+<form method="post" id="form_editado">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+</form>

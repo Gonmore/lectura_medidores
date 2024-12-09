@@ -1,0 +1,75 @@
+{% extends '../layouts/base.html' %}
+{% block titulo %}
+    Inicio
+{% endblock %}
+{% block contenido %}
+
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+    <button type="button" class="btn btn-success btn_nuevo" >+ Agregar medidor</button>
+    <button type="button" class="btn btn-success btn_addcsv" data-serial="{{medidor.serial}}" >Importar</button>
+    <!-- TABLA y Filtro-->
+    <div class="col cajatabla" >
+        <div id="lista1" >
+        <table class="tablesorter-ice tablesorter tabla-fija dataTable" id="tabla_medidores">
+          <thead class="table">
+            
+              <tr>
+                <th scope="col1">Nombre</th>
+                <th scope="col2">Modelo</th>
+                <th scope="col3" class="sortable">S/N</th>
+                <th scope="col4">TCP/Serial</th>
+                <th scope="col5">Logical Name</th>
+                <th scope="col6">Estado</th>
+                <th scope="col7">Lectura</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for medidor in medidores %}
+                <tr >
+                  <td scope="col1"><b>{{medidor.name}}</b></td>
+                  <td scope="col2">{{medidor.model.name}}</td>
+                  <td scope="col3" class="col3">{{medidor.serial}}</td>
+                  <td scope="col4">{{medidor.con_method.type}}</td>
+                  <td scope="col5">{{medidor.logical_name}}</td>
+                  <td scope="col6">{{medidor.pot_act_dir}}</td>
+                  <td scope="col7">
+                    <button type="button" class="btn btn-primary btn_ver" data-name="{{medidor.name}}" >Ver</button>
+                    <button type="button" class="btn btn-primary btn_leer" data-name="{{medidor.name}}" >Leer</button>
+                    <button type="button" class="btn btn-outline-primary btn_editar" data-name="{{medidor.name}}" >Edit</button>
+                    <button type="button" class="btn btn-danger btn_quitar" data-name="{{medidor.name}}"><b>x</b></button>
+                  </td>
+                  
+                </tr>           
+              {% endfor %}
+            </tbody>         
+        </table>
+        <div class="row">
+          <div class="col-12">
+            {% if jugadores.has_next %}
+            <a href="?page={{medidores.next_page_number}}" class="infinite-more-link">next</a>
+            {% endif %}
+          </div>
+        </div>     
+      </div>
+        </div>
+
+      <!-- Modal Fav-->
+      <div class="modal fade" id="favModal" tabindex="-1" role="dialog" aria-labelledby="favModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="favModalCenterTitle">
+
+              </h5>
+            </div>
+            <div class="modal-body">
+              
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+        </div>
+      </div>
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+<script src="../../static/js/meter.js"></script>
+{% endblock %}

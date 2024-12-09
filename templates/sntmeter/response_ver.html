@@ -1,0 +1,49 @@
+{% load static %}
+
+
+<table class="tablesorter-ice tablesorter tabla-fija" id="tabla_historial">
+    <thead class="table">
+        <tr>
+            <th scope="col1">Fecha/Hora</th>
+            <th scope="col2">C_1</th>
+            <th scope="col3">C_2</th>
+            <th scope="col4">C_3</th>
+            <th scope="col5">F_Pot</th>
+            <th scope="col6">F_Pot1</th>
+            <th scope="col7">F_Pot2</th>
+            <th scope="col8">F_Pot3</th>
+            <th scope="col9">Pot_Dir</th>
+            <th scope="col10">Pot_rev</th>
+            <th scope="col11">P.R.C_QI</th>
+            <th scope="col12">P.R.C_QII</th>
+            <th scope="col13">P.R.C_QIII</th>
+            <th scope="col14">P.R.C_QIV</th>
+            <th scope="col15">V_1</th>
+            <th scope="col16">V_2</th>
+            <th scope="col17">V_3</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for medidor in historial %}
+        <tr >
+            <td scope="col1"><b>{{medidor.history_date}}</b></td>
+            <td scope="col2">{{medidor.corriente_1}}</td>
+            <td scope="col3" class="col3">{{medidor.corriente_2}}</td>
+            <td scope="col4">{{medidor.corriente_3}}</td>
+            <td scope="col5">{{medidor.fact_de_pot}}</td>
+            <td scope="col6">{{medidor.fact_de_pot_1}}</td>
+            <td scope="col7">{{medidor.fact_de_pot_2}}</td>
+            <td scope="col8">{{medidor.fact_de_pot_3}}</td>
+            <td scope="col9">{{medidor.pot_apar_dir}}</td>
+            <td scope="col10">{{medidor.pot_apar_rev}}</td>
+            <td scope="col11">{{medidor.pot_reac_cap_QI}}</td>
+            <td scope="col12">{{medidor.pot_reac_cap_QII}}</td>
+            <td scope="col13">{{medidor.pot_reac_cap_QIII}}</td>
+            <td scope="col14">{{medidor.pot_reac_cap_QIV}}</td>
+            <td scope="col15">{{medidor.vol_de_fase_1}}</td>
+            <td scope="col16">{{medidor.vol_de_fase_2}}</td>
+            <td scope="col17">{{medidor.vol_de_fase_3}}</td>
+        </tr>           
+        {% endfor %}
+    </tbody>         
+</table>
